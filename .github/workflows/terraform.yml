@@ -26,8 +26,11 @@ jobs:
         working-directory: .
         run: terraform fmt -check -recursive infra
 
+      - name: Disable Backend for CI
+        run: mv backend.tf backend.tf.disabled
+
       - name: Terraform Init
-        run: terraform init -backend=false
+        run: terraform init
 
       - name: Terraform Validate
         run: terraform validate
