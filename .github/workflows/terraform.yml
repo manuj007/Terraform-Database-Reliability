@@ -51,4 +51,4 @@ jobs:
           EOF
 
       - name: Terraform Plan
-        run: terraform plan -var-file="ci.tfvars" -no-color# CI workflow test
+        run: terraform plan -var-file="ci.tfvars" -no-color
