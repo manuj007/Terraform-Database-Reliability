@@ -26,8 +26,11 @@ jobs:
         working-directory: .
         run: terraform fmt -check -recursive infra
 
+      - name: Disable Backend for CI
+        run: mv backend.tf backend.tf.disabled
+
       - name: Terraform Init
-        run: terraform init -backend=false
+        run: terraform init
 
       - name: Terraform Validate
         run: terraform validate
@@ -51,4 +54,11 @@ jobs:
           EOF
 
       - name: Terraform Plan
-        run: terraform plan -var-file="ci.tfvars" -no-color
+        env:
+          AWS_ACCESS_KEY_ID: "dummy"
+          AWS_SECRET_ACCESS_KEY: "dummy"
+          AWS_DEFAULT_REGION: "us-east-1"
+        run: |
+          terraform plan \
+            -var-file="ci.tfvars" \
+            -no-color
