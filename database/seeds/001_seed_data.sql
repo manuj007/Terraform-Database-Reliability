@@ -1,0 +1,48 @@
+INSERT INTO hotel_bookings (
+    id,
+    org_id,
+    hotel_id,
+    city,
+    checkin_date,
+    checkout_date,
+    amount,
+    status
+)
+VALUES
+(
+    '11111111-1111-1111-1111-111111111111',
+    'aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa',
+    'HOTEL-001',
+    'Delhi',
+    '2026-10-10',
+    '2026-10-12',
+    12500.00,
+    'CONFIRMED'
+),
+(
+    '22222222-2222-2222-2222-222222222222',
+    'bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb',
+    'HOTEL-002',
+    'Mumbai',
+    '2026-11-05',
+    '2026-11-08',
+    18500.00,
+    'CONFIRMED'
+);
+
+INSERT INTO booking_events (
+    booking_id,
+    event_type,
+    payload
+)
+VALUES
+(
+    '11111111-1111-1111-1111-111111111111',
+    'BOOKING_CONFIRMED',
+    '{"source":"seed","payment_status":"paid"}'
+),
+(
+    '22222222-2222-2222-2222-222222222222',
+    'BOOKING_CONFIRMED',
+    '{"source":"seed","payment_status":"paid"}'
+);
