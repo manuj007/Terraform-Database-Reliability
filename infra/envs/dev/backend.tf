@@ -1,7 +1,4 @@
 terraform {
-  backend "s3" {
-    bucket = "devops-assignment-terraform-state"
-    key    = "dev/terraform.tfstate"
-    region = "us-east-1"
-  }
+  # For local review, Terraform uses the default local state backend.
+  # For AWS deployment, configure an S3 backend here.
 }
