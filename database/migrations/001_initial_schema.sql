@@ -35,3 +35,7 @@ CREATE INDEX IF NOT EXISTS idx_booking_events_booking_id
 
 CREATE INDEX IF NOT EXISTS idx_booking_events_created_at
     ON booking_events(created_at);
+
+-- Optimize filtering by city and recent creation time.
+CREATE INDEX IF NOT EXISTS idx_hotel_bookings_city_created_at
+    ON hotel_bookings(city, created_at);
